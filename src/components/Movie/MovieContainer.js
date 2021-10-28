@@ -32,6 +32,15 @@ class MovieContainer extends React.Component {
   };
 
 
+  handleDeleteMovie = async (movieId) => {
+    let deletedMovie = await MovieApi.deleteMovie(movieId);
+   
+      this.setState({
+        movieData: this.state.movieData.filter((movie) => movie.id !== movieId),
+      });
+    
+  };
+
   render() {
     // let { id } = this.state.movieData;
 
@@ -42,6 +51,7 @@ class MovieContainer extends React.Component {
             <MovieCard
             movie = {movie}
             key = {movie.id}
+            onDelete={() => this.handleDeleteMovie(movie.id)}
             />
          )
         })
