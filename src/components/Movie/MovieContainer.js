@@ -23,10 +23,10 @@ class MovieContainer extends React.Component {
     this.fetchMovies();
   }
 
-  handleCreateMovie = async (title,director,year,length_minutes) => {
-    let newMovie = await MovieApi.addMovie(title,director,year,length_minutes);
+  handleCreateMovie =async (data) => {
+    let newMovie = await MovieApi.addNewMovie(data);
     this.setState({
-      boardData: [...this.state.movieData, newMovie],
+      movieData: [...this.state.movieData, newMovie],
     });
    
   };
