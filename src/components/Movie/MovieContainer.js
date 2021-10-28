@@ -1,25 +1,65 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-
+import * as MovieApi from "./../../services/api";
 import MovieCard from "./MovieCard";
 import ModalMovie from "./ModalMovie";
 
 class MovieContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movieData: [],
+    };
+  }
+
+  fetchMovies = async () => {
+    let movies = await MovieApi.getMovies();
+    console.log(movies);
+    this.setState({ movieData: movies });
+  };
+
+  componentDidMount() {
+    this.fetchMovies();
+  }
+
+  handleCreateMovie = async (title,director,year,length_minutes) => {
+    let newMovie = await MovieApi.addMovie(title,director,year,length_minutes);
+    this.setState({
+      boardData: [...this.state.movieData, newMovie],
+    });
+   
+  };
+
+
   render() {
+    // let { id } = this.state.movieData;
+
     return (
       <div className="d-flex flex-wrap justify-content-center">
-        <MovieCard />
-
+        {this.state.movieData.map((movie)=>{
+         return(
+            <MovieCard
+            movie = {movie}
+            key = {movie.id}
+            />
+         )
+        })
+      }
+       
         <Card
           style={{
-            width: "18rem",
-            height: "7rem",
+            width: "26rem",
+            height: "19rem",
             margin: "20px",
-            color: "grey",
+            color: "white",
+            backgroundColor: "blue",
           }}
         >
-          <ModalMovie />
+          <ModalMovie
+           key={this.state.movieData.id}
+           onCreate={this.handleCreateMovie}
+          />
         </Card>
       </div>
     );
