@@ -15,31 +15,42 @@ class MovieShows extends React.Component {
           className="g-9"
           style={{
             margin: "6rem",
-           
           }}
         >
           <Col>
-         
             <Card>
-              <div style ={{display:"flex" ,justifyContent:"spaceBetween", position:"relative"}}>
-              <Button 
-                style={{ width: "130px", height: "50px" ,marginRight:"54.30rem", }}
-                variant="outline-danger"
-                onClick={this.props.onDelete}
-                href="#"
-              >
-                Delete show
-              </Button>
-              {/* <Button   variant="outline-danger"> */}
-              <UpdateShow
-              style ={{position:"absolute",right:"0px"}}
-                key={this.props.show.id}
-                showId = {this.props.show.id}
-                onUpdate={this.props.onUpdate}
-              />
+              <div 
+              style={{ 
+                background: "#FF5F6D",  
+              position:"relative"
+              
+              
+              }}>
+                <div  style={{ position: "absolute", left: "0px" ,padding:"10px"}}>
+
+                <Button
+                  
+                 
+                  variant="outline-danger"
+                  onClick={this.props.onDelete}
+                  href="#"
+                  style ={{fontSize:"22px",margin:"0px auto"}}
+                >
+                  Delete show
+                </Button>
+                </div>
+                <div  style={{ position: "absolute", right: "0px" ,padding:"10px"}}>
+
+                <UpdateShow
+                 
+                  key={this.props.show.id}
+                  showId={this.props.show.id}
+                  onUpdate={this.props.onUpdate}
+                />
+                   </div>
               </div>
-                {/* </Button> */}
-              <Card.Body style={{ backgroundColor: "lawngreen" }}>
+             
+              <Card.Body style={{ backgroundColor: "#D8E3E7" }}>
                 <Card.Title
                   style={{ display: "flex", justifyContent: "center" }}
                 >
