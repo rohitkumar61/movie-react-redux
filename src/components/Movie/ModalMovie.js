@@ -56,7 +56,7 @@ class ModalMovie extends Component {
         </div>
 
         <Modal show={this.state.show} onHide={this.handleShow}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>
               <Form onSubmit={this.handleSubmit}>
                 {/* <Row> */}

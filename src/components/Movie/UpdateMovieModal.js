@@ -9,6 +9,7 @@ class UpdateMovieModal extends Component {
       director: "",
       year: "",
       length_minutes: "",
+      id:"",
       show: false,
     };
   }
@@ -22,10 +23,11 @@ class UpdateMovieModal extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
+    this.state.id = this.props.movieId
     const data = this.state;
+
     delete data.show;
-    this.props.onUpdate(data, this.props.id);
+    this.props.onUpdate(data);
     this.setState({
       title: "",
       director: "",
@@ -50,7 +52,7 @@ class UpdateMovieModal extends Component {
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleShow}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>
               <Form onSubmit={this.handleSubmit}>
                 {/* <Row> */}
