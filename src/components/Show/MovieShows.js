@@ -42,7 +42,7 @@ class MovieShows extends React.Component {
                 <div  style={{ position: "absolute", right: "0px" ,padding:"10px"}}>
 
                 <UpdateShow
-                 
+                 show = {this.props.show}
                   key={this.props.show.id}
                   showId={this.props.show.id}
                   onUpdate={this.props.onUpdate}
