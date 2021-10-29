@@ -17,7 +17,7 @@ class MovieCard extends React.Component {
             width: "26rem",
             height: "19rem",
             margin: "20px",
-            color: "white",
+            textColor: "white",
             backgroundColor: "blue",
           }}
         >
@@ -27,6 +27,7 @@ class MovieCard extends React.Component {
                 marginTop: "2.3rem",
                 fontSize: "3rem",
                 lineHeight: "4rem",
+                color:"white"
               }}
             >
               <Card.Title>
@@ -51,7 +52,7 @@ class MovieCard extends React.Component {
         >
           Delete Movie
         </Button>{" "}
-        <UpdateMovieModal key={id} id={id} onUpdate={this.props.onUpdate} />
+        <UpdateMovieModal key={id} movieId={this.props.movie.id} onUpdate={this.props.onUpdate} />
       </div>
     );
   }
