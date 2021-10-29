@@ -62,6 +62,17 @@ export function deleteMovie(id) {
   return makeRequest(url, "", meta);
 }
 
+
+export function deleteShows(id) {
+  let url = `https://backend-database-movie-entity.herokuapp.com/api/shows/${id}`;
+  let meta = {
+    method: "DELETE",
+  };
+
+  return makeRequestDelete(url, "", meta);
+}
+
+
 export function updateMovie(data,id) {
   let url = `https://backend-database-movie-entity.herokuapp.com/api/movies/${id}`;
   let meta = {
@@ -75,6 +86,25 @@ export function updateMovie(data,id) {
   return makeRequest(url,"", meta);
 }
 
+
+
+function makeRequestDelete(url, queryParams, meta) {
+  url += `${queryParams}`;
+  return fetch(url, meta)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data)
+      return parseInt(data.id);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+
+
 function makeRequest(url, queryParams, meta) {
   url += `${queryParams}`;
   return fetch(url, meta)
@@ -82,6 +112,7 @@ function makeRequest(url, queryParams, meta) {
       return response.json();
     })
     .then((data) => {
+      console.log(data)
       return data;
     })
     .catch((err) => {
