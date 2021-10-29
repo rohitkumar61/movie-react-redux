@@ -4,14 +4,7 @@ import { Button, Modal, Row, Form, Col } from "react-bootstrap";
 class UpdateShow extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-		movie_name: "",
-		theatre_name: "",
-		rating: "",
-		movie_info:"",
-		
-      show: false,
-    };
+    this.state = {...props.show}
   }
 
   handleChange = (event) => {
@@ -23,24 +16,36 @@ class UpdateShow extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-	this.state.id = this.props.showId
+    this.state.id = this.props.showId;
     const data = this.state;
+    let isValid = this.validateInputField(data);
     delete data.show;
-    this.props.onUpdate(data);
-    this.setState({
-		movie_name: "",
-		theatre_name: "",
-		rating: "",
-		movie_info:"",
-    });
+
+    if (isValid) {
+      this.props.onUpdate(data);
+    } else {
+      alert("Enter All Input Field... ");
+    }
   };
- 
+
+  validateInputField = (data) => {
+    let isValid = true;
+    let newData = { ...data };
+    Object.values(newData).forEach((element) => {
+      if (!`${element}`) {
+        isValid = false;
+      }
+    });
+
+       return isValid;
+  };
+
   handleShow = () => this.setState({ show: !this.state.show });
 
   render() {
     return (
       <>
-	  {/* <div style ={{margin:"5rem"}}> */}
+       
         <Button
           onClick={this.handleShow}
           size="lg"
@@ -48,9 +53,9 @@ class UpdateShow extends Component {
           variant="outline-secondary"
         >
           {" "}
-      Update Shows
+          Update Shows
         </Button>
-		{/* </div> */}
+        {/* </div> */}
         <Modal show={this.state.show} onHide={this.handleShow}>
           <Modal.Header>
             <Modal.Title>
@@ -63,7 +68,7 @@ class UpdateShow extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Movie
+                      Movie
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -83,7 +88,7 @@ class UpdateShow extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                   Theatre
+                      Theatre
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -103,7 +108,7 @@ class UpdateShow extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Rating
+                      Rating
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -123,7 +128,7 @@ class UpdateShow extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Info
+                      Info
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
