@@ -88,6 +88,21 @@ export function updateMovie(data,id) {
 
 
 
+export function updateShows(data,id) {
+  let url = `https://backend-database-movie-entity.herokuapp.com/api/shows/${id}`;
+  let meta = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+
+  return makeRequest(url,"", meta);
+}
+
+
+
 function makeRequestDelete(url, queryParams, meta) {
   url += `${queryParams}`;
   return fetch(url, meta)
