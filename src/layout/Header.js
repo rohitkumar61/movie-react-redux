@@ -1,14 +1,14 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 function Header() {
   return (
     <div>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="secondary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="">
 			  <h1>Movies</h1>
             {/* <img
               alt=""
@@ -18,10 +18,12 @@ function Header() {
               className="d-inline-block align-top"
             />{" "} */}
           </Navbar.Brand>
-          <Navbar bg="primary" variant="dark">
+          <Navbar bg="secondary" variant="dark">
             <Container>
               <Nav className="me-auto">
-                <div style={{color:"white"}}>Home</div>
+              <Link to = "/">
+                <div style={{color:"white", fontSize:"1.3rem", textDecoration:"none"}}>Home</div>
+                </Link>
               </Nav>
             </Container>
           </Navbar>
