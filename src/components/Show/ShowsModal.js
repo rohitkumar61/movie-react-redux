@@ -5,10 +5,10 @@ class ShowsModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-		movie_name: "",
-		theatre_name: "",
-		rating: "",
-		movie_info:"",
+      movie_name: "",
+      theatre_name: "",
+      rating: "",
+      movie_info: "",
       show: false,
     };
   }
@@ -24,14 +24,34 @@ class ShowsModal extends Component {
     event.preventDefault();
 
     const data = this.state;
+    let isValid = this.validateInputField(data);
+
     delete data.show;
-    this.props.onCreate(data, this.props.id);
-    this.setState({
-		movie_name: "",
-		theatre_name: "",
-		rating: "",
-		movie_info:"",
+    if (isValid) {
+      this.props.onCreate(data, this.props.id);
+      this.setState({
+        movie_name: "",
+        theatre_name: "",
+        rating: "",
+        movie_info: "",
+      });
+    } else {
+      alert("Enter All Input Field... ");
+    }
+  };
+
+  validateInputField = (data) => {
+    let isValid = true;
+    let newData = { ...data };
+    Object.values(newData).forEach((element) => {
+      if (!`${element}`) {
+        isValid = false;
+      }
     });
+
+    console.log("fields", data);
+    console.log("new fields", newData);
+    return isValid;
   };
 
   handleShow = () => this.setState({ show: !this.state.show });
@@ -39,17 +59,17 @@ class ShowsModal extends Component {
   render() {
     return (
       <>
-	  <div style ={{margin:"5rem"}}>
-        <Button
-          onClick={this.handleShow}
-          size="lg"
-          onClick={this.handleShow}
-          variant="outline-secondary"
-        >
-          {" "}
-      Add Shows
-        </Button>
-		</div>
+        <div style={{ margin: "5rem" }}>
+          <Button
+            onClick={this.handleShow}
+            size="lg"
+            onClick={this.handleShow}
+            variant="outline-secondary"
+          >
+            {" "}
+            Add Shows
+          </Button>
+        </div>
         <Modal show={this.state.show} onHide={this.handleShow}>
           <Modal.Header>
             <Modal.Title>
@@ -62,7 +82,7 @@ class ShowsModal extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Movie
+                      Movie
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -82,7 +102,7 @@ class ShowsModal extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                   Theatre
+                      Theatre
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -102,7 +122,7 @@ class ShowsModal extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Rating
+                      Rating
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
@@ -122,7 +142,7 @@ class ShowsModal extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Info
+                      Info
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
