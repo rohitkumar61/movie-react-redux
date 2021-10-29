@@ -14,8 +14,6 @@ class ShowContainer extends React.Component {
 
   fetchMovieShows = async () => {
     let shows = await ShowsApi.getMovieShows(this.props.match.params.id);
-    console.log("--------------------data from api");
-    console.log(shows);
     this.setState({ showData: shows });
   };
 
@@ -26,15 +24,24 @@ class ShowContainer extends React.Component {
   handleAddShow = async(data) => {
     let id = parseInt(this.props.match.params.id);
     let newShow = await ShowsApi.addNewShows(data,id);
-    
+
     this.setState({
       showData:{shows:[...this.state.showData.shows,newShow]}
     });
   };
 
+  
+  handleDeleteshow = async (showId) => {
+    // console.log(showId)
+    let deletedShowId = await ShowsApi.deleteShows(showId);
+
+    this.setState({
+      showData:{shows:this.state.showData.shows.filter((show) => show.id !== deletedShowId),
+    }});
+  };
+
   render() {
-    console.log("------------------------------data from state---------");
-    console.log(this.state.showData.shows);
+   
     return (
       <div className="d-flex justify-content-center flex-column">
         {this.state.showData.shows.map((show) => (
