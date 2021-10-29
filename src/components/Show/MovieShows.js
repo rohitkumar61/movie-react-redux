@@ -1,7 +1,8 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { DropdownButton, Dropdown } from "react-bootstrap";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
+import UpdateShow from "./UpdateShow";
 
 class MovieShows extends React.Component {
   render() {
@@ -9,59 +10,66 @@ class MovieShows extends React.Component {
     return (
       <div>
         <Row
-          xs={2}
+          xs={1}
           md={1}
-          className="g-1"
+          className="g-9"
           style={{
-            margin: "4rem",
-            minWidth: "20rem",
-            maxWidth: "30rem",
-            minHeight: "20rem",
+            margin: "6rem",
+           
           }}
         >
           <Col>
+         
             <Card>
-              <DropdownButton
-                variant="outline-secondary"
-                title=""
-                id="input-group-dropdown-2"
-                align="end"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyItems: "flex-end",
-                  textDecorationStyle: "none",
-                  //  marginRight:"100px"
-                }}
+              <div style ={{display:"flex" ,justifyContent:"spaceBetween", position:"relative"}}>
+              <Button 
+                style={{ width: "130px", height: "50px" ,marginRight:"54.30rem", }}
+                variant="outline-danger"
+                onClick={this.props.onDelete}
+                href="#"
               >
-                <Dropdown.Item onClick={this.props.onDelete} href="#">
-                  Remove Show
-                </Dropdown.Item>
-              </DropdownButton>
-
-              <Card.Body>
-                <Card.Title>
-                  <span>Movie: {movie_name}</span>
+                Delete show
+              </Button>
+              {/* <Button   variant="outline-danger"> */}
+              <UpdateShow
+              style ={{position:"absolute",right:"0px"}}
+                key={this.props.show.id}
+                showId = {this.props.show.id}
+                onUpdate={this.props.onUpdate}
+              />
+              </div>
+                {/* </Button> */}
+              <Card.Body style={{ backgroundColor: "lawngreen" }}>
+                <Card.Title
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <h1 style={{ marginRight: "30px" }}>Movie:</h1>
+                  <h1> {movie_name}</h1>
                 </Card.Title>
-                <Card.Title>
+                <Card.Title
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <h1 style={{ marginRight: "30px" }}> Theatre:</h1>
                   <h1> {theatre_name}</h1>
                 </Card.Title>
-                <Card.Title>
+                <Card.Title
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <h1 style={{ marginRight: "30px" }}> Ratings:</h1>
                   <h1> {rating}</h1>
                 </Card.Title>
                 <Card.Text>
-                  <p> {movie_info}</p>.
+                  <h1>About Movie</h1>
+                  <p style={{ fontSize: "1.2rem", lineHeight: "2.5rem" }}>
+                    {" "}
+                    {movie_info}
+                  </p>
+                  .
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
         </Row>
-
-        {/*          
-            <CreateCards
-              key={this.state.cardData.id}
-              onCreate={this.handleCreateCard}
-            /> */}
       </div>
     );
   }
