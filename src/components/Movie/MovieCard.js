@@ -54,7 +54,7 @@ class MovieCard extends React.Component {
         >
           Delete Movie
         </Button>{" "}
-        <UpdateMovieModal key={id} movieId={this.props.movie.id} onUpdate={this.props.onUpdate} />
+        <UpdateMovieModal key={id} movieId={this.props.movie.id} movie = {this.props.movie} onUpdate={this.props.onUpdate} />
       </div>
     );
   }
