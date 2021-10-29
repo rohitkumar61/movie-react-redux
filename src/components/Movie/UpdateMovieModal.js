@@ -4,14 +4,7 @@ import { Button, Modal, Row, Form, Col } from "react-bootstrap";
 class UpdateMovieModal extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      director: "",
-      year: "",
-      length_minutes: "",
-      id:"",
-      show: false,
-    };
+this.state = {...props.movie}
   }
 
   handleChange = (event) => {
@@ -25,15 +18,8 @@ class UpdateMovieModal extends Component {
     event.preventDefault();
     this.state.id = this.props.movieId
     const data = this.state;
-
     delete data.show;
     this.props.onUpdate(data);
-    this.setState({
-      title: "",
-      director: "",
-      year: "",
-      length_minutes: "",
-    });
   };
 
   handleShow = () => this.setState({ show: !this.state.show });
