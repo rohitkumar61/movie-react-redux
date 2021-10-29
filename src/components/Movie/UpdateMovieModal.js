@@ -4,7 +4,7 @@ import { Button, Modal, Row, Form, Col } from "react-bootstrap";
 class UpdateMovieModal extends Component {
   constructor(props) {
     super(props);
-this.state = {...props.movie}
+    this.state = { ...props.movie };
   }
 
   handleChange = (event) => {
@@ -16,10 +16,27 @@ this.state = {...props.movie}
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.state.id = this.props.movieId
+    this.state.id = this.props.movieId;
     const data = this.state;
+    let isValid = this.validateInputField(data);
     delete data.show;
-    this.props.onUpdate(data);
+    if (isValid) {
+      this.props.onUpdate(data);
+    } else {
+      alert("Enter All Input Field... ");
+    }
+  };
+
+  validateInputField = (data) => {
+    let isValid = true;
+    let newData = { ...data };
+    Object.values(newData).forEach((element) => {
+      if (!`${element}`) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
   };
 
   handleShow = () => this.setState({ show: !this.state.show });
