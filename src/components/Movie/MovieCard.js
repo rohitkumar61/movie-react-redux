@@ -16,9 +16,11 @@ class MovieCard extends React.Component {
           style={{
             width: "26rem",
             height: "19rem",
-            margin: "20px",
-            textColor: "white",
-            backgroundColor: "blue",
+            margin: "30px",
+            textColor: "black",
+            backgroundColor: "black",
+            textDecorationLine:"none"
+           
           }}
         >
           <Link to={`/movie/${id}`}>
@@ -30,13 +32,13 @@ class MovieCard extends React.Component {
                 color:"white"
               }}
             >
-              <Card.Title>
+              <Card.Header >
                 <h1>{title}</h1>
+              </Card.Header>
+              <Card.Title >
+                <h1>{director}</h1>
               </Card.Title>
-              <Card.Title>
-                <h2>{director}</h2>
-              </Card.Title>
-              <Card.Title>
+              <Card.Title  >
                 <h2>{year}</h2>
               </Card.Title>
               <Card.Title>

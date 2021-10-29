@@ -127,12 +127,12 @@ class ModalMovie extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                      Run Time (min)
+                      Run Time
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
                         type="number"
-                        placeholder="Enter Movie Run Time"
+                        placeholder="Enter Movie Run Time (min)"
                         name="length_minutes"
                         onChange={this.handleChange}
                         value={this.state.length_minutes}

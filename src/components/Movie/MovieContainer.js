@@ -75,7 +75,7 @@ class MovieContainer extends React.Component {
           style={{
             width: "26rem",
             height: "19rem",
-            margin: "20px",
+            margin: "30px",
             color: "white",
             backgroundColor: "Blue",
           }}
