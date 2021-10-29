@@ -23,52 +23,66 @@ class MovieContainer extends React.Component {
     this.fetchMovies();
   }
 
-  handleCreateMovie =async (data) => {
+  handleCreateMovie = async (data) => {
     let newMovie = await MovieApi.addNewMovie(data);
     this.setState({
       movieData: [...this.state.movieData, newMovie],
     });
-   
   };
-
 
   handleDeleteMovie = async (movieId) => {
     let deletedMovie = await MovieApi.deleteMovie(movieId);
-   
-      this.setState({
-        movieData: this.state.movieData.filter((movie) => movie.id !== movieId),
+
+    this.setState({
+      movieData: this.state.movieData.filter((movie) => movie.id !== movieId),
+    });
+  };
+
+  handleUpdateMovie = async (data) => {
+    let id = data.id;
+    delete data.id;
+    let updatedMovie = await MovieApi.updateMovie(data, id);
+    console.log(updatedMovie);
+    data.id = id;
+    if (updatedMovie.message.indexOf("successfull" > -1)) {
+      const newMovieState = this.state.movieData.map((movie) => {
+        if (id === movie.id) {
+          return data;
+        }
+        return movie;
       });
-    
+      this.setState({ movieData: newMovieState });
+    }
   };
 
   render() {
-    // let { id } = this.state.movieData;
+   
 
     return (
       <div className="d-flex flex-wrap justify-content-center">
-        {this.state.movieData.map((movie)=>{
-         return(
+        {this.state.movieData.map((movie) => {
+          return (
             <MovieCard
-            movie = {movie}
-            key = {movie.id}
-            onDelete={() => this.handleDeleteMovie(movie.id)}
+              movie={movie}
+              key={movie.id}
+              onDelete={() => this.handleDeleteMovie(movie.id)}
+              onUpdate={this.handleUpdateMovie}
             />
-         )
-        })
-      }
-       
+          );
+        })}
+
         <Card
           style={{
             width: "26rem",
             height: "19rem",
             margin: "20px",
             color: "white",
-            backgroundColor: "blue",
+            backgroundColor: "Blue",
           }}
         >
           <ModalMovie
-           key={this.state.movieData.id}
-           onCreate={this.handleCreateMovie}
+            key={this.state.movieData.id}
+            onCreate={this.handleCreateMovie}
           />
         </Card>
       </div>
