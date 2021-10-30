@@ -10,13 +10,6 @@ function Header() {
         <Container>
           <Navbar.Brand href="">
 			  <h1>Movies</h1>
-            {/* <img
-              alt=""
-              
-              width="70"
-              height="20"
-              className="d-inline-block align-top"
-            />{" "} */}
           </Navbar.Brand>
           <Navbar bg="secondary" variant="dark">
             <Container>
