@@ -51,7 +51,7 @@ class MovieShows extends React.Component {
               </div>
              
               <Card.Img variant="top" style ={this.props.style}  style ={{backgroundPosition: "center",
-  backgroundSize:"cover", height:"33vh",  backgroundImage: `${this.props.style.backgroundImage}`}}/>
+  backgroundSize:"cover", height:"55vh",  backgroundImage: `${this.props.style.backgroundImage}`}}/>
 
 <Card className="bg-dark text-white">
   {/* <Card.Img src="holder.js/100px270" alt="Card image" /> */}
