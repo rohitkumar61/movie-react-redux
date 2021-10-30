@@ -12,7 +12,7 @@ class MovieCard extends React.Component {
       this.props.movie;
     console.log(this.props.style);
     return (
-      <div>
+      <div style ={{marginBottom:"40px"}}>
         <Card
           style={{
             width: "25rem",

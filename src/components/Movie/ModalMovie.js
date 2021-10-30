@@ -81,9 +81,7 @@ class ModalMovie extends Component {
 
         <Modal show={this.state.show} onHide={this.handleShow}>
           <Modal.Header closeButton>
-            {/* <Button variant="secondary" onClick={this.handleShow}>
-              Close
-            </Button> */}
+           
           </Modal.Header>
           <Modal.Body>
             {/* <Modal.Title> */}
