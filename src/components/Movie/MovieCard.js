@@ -1,24 +1,25 @@
 // import Button from "@restart/ui/esm/Button";
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Button,ListGroupItem,ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import UpdateMovieModal from "./UpdateMovieModal";
 
 class MovieCard extends React.Component {
   render() {
-    const { id, title, director, year, length_minutes } = this.props.movie;
-
+    const { id, title, director, year, length_minutes,photo } = this.props.movie;
+console.log(this.props.style)
     return (
       <div>
         <Card
           style={{
             width: "26rem",
-            height: "19rem",
-            margin: "30px",
+            height: "32rem",
+            margin: "40px",
             textColor: "black",
-            backgroundColor: "black",
+            // backgroundColor: "black",
+           
             textDecorationLine:"none"
            
           }}
@@ -31,7 +32,37 @@ class MovieCard extends React.Component {
         className="d-inline-block align-top"
       />{" "} */}
           <Link to={`/movie/${id}`}>
-            <Card.Body
+
+
+
+          <Card 
+          // style={{ width: '18rem' }}
+          >
+ 
+  <Card.Img variant="top" style ={this.props.style}  style ={{backgroundPosition: "center",
+  backgroundSize:"cover", height:"33vh",  backgroundImage: `${this.props.style.backgroundImage}`}}/>
+  <Card.Body>
+    <Card.Title>{title}</Card.Title>
+    
+  </Card.Body>
+  <ListGroup className="list-group-flush">
+    <ListGroupItem>{director}</ListGroupItem>
+    <ListGroupItem>{year}</ListGroupItem>
+    <ListGroupItem>{length_minutes}min</ListGroupItem>
+   
+  </ListGroup>
+  {/* <Card.Body>
+    <Card.Link href="#">Card Link</Card.Link>
+    <Card.Link href="#">Another Link</Card.Link>
+  </Card.Body> */}
+</Card>
+
+
+
+
+
+
+            {/* <Card.Body
               style={{
                 marginTop: "2.3rem",
                 fontSize: "3rem",
@@ -51,7 +82,7 @@ class MovieCard extends React.Component {
               <Card.Title>
                 <h2>{length_minutes}min</h2>
               </Card.Title>
-            </Card.Body>
+            </Card.Body> */}
           </Link>
         </Card>
         <Button

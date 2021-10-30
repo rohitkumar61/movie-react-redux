@@ -62,15 +62,20 @@ class ShowContainer extends React.Component {
    
     return (
       <div className="d-flex justify-content-center flex-column">
-        {this.state.showData.shows.map((show) => (
-          <MovieShows
+        {this.state.showData.shows.map((show) => {
+           let style = {
+            backgroundImage: `url(${show.photo_url})`,
+          }
+        return(  <MovieShows
             show={show}
             key={show.id}
             onDelete={() => this.handleDeleteshow(show.id)}
             onUpdate={this.handleUpdateShows}
+            style ={style}
            
           />
-        ))}
+        )
+  })}
         <div>
           <ShowsModal
             key={this.state.showData.shows.id}

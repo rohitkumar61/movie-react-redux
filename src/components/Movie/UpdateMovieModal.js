@@ -146,6 +146,28 @@ class UpdateMovieModal extends Component {
                     </Col>
                   </Form.Group>
                 </Col>
+
+                <Col>
+                  <Form.Group
+                    as={Row}
+                    className="mb-3"
+                    controlId="formHorizontalEmail"
+                  >
+                    <Form.Label column sm={5}>
+                     Movie Url
+                    </Form.Label>
+                    <Col sm={7}>
+                      <Form.Control
+                        type="url"
+                        placeholder="Enter Movie Url)"
+                        name="photo"
+                        onChange={this.handleChange}
+                        value={this.state.photo}
+                      />
+                    </Col>
+                  </Form.Group>
+                </Col>
+
                 {/* </Row> */}
                 <button type="submit" className="btn btn-primary">
                   Update Movie

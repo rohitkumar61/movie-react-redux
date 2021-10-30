@@ -10,6 +10,7 @@ class ModalMovie extends Component {
       director: "",
       year: "",
       length_minutes: "",
+      photo:"",
       show: false,
     };
   }
@@ -144,6 +145,7 @@ class ModalMovie extends Component {
                     </Col>
                   </Form.Group>
                 </Col>
+
                 <Col>
                   <Form.Group
                     as={Row}
@@ -160,6 +162,27 @@ class ModalMovie extends Component {
                         name="length_minutes"
                         onChange={this.handleChange}
                         value={this.state.length_minutes}
+                      />
+                    </Col>
+                  </Form.Group>
+                </Col>
+
+                <Col>
+                  <Form.Group
+                    as={Row}
+                    className="mb-3"
+                    controlId="formHorizontalEmail"
+                  >
+                    <Form.Label column sm={4}>
+                     Movie Url
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Control
+                        type="url"
+                        placeholder="Enter Movie Run Time (min)"
+                        name="photo"
+                        onChange={this.handleChange}
+                        value={this.state.photo}
                       />
                     </Col>
                   </Form.Group>

@@ -148,6 +148,28 @@ class UpdateShow extends Component {
                     </Col>
                   </Form.Group>
                 </Col>
+
+                <Col>
+                  <Form.Group
+                    as={Row}
+                    className="mb-3"
+                    controlId="formHorizontalEmail"
+                  >
+                    <Form.Label column sm={4}>
+                      Movie Url
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Control
+                        type="url"
+                        placeholder="Enter Enter Movie Url"
+                        name="photo_url"
+                        onChange={this.handleChange}
+                        value={this.state.photo_url}
+                      />
+                    </Col>
+                  </Form.Group>
+                </Col>
+
                 {/* </Row> */}
                 <button type="submit" className="btn btn-primary">
                   Update Shows

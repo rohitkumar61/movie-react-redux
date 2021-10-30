@@ -50,7 +50,29 @@ class MovieShows extends React.Component {
                    </div>
               </div>
              
-              <Card.Body style={{ backgroundColor: "#D8E3E7" }}>
+              <Card.Img variant="top" style ={this.props.style}  style ={{backgroundPosition: "center",
+  backgroundSize:"cover", height:"33vh",  backgroundImage: `${this.props.style.backgroundImage}`}}/>
+
+<Card className="bg-dark text-white">
+  {/* <Card.Img src="holder.js/100px270" alt="Card image" /> */}
+  {/* <Card.ImgOverlay> */}
+    <Card.Title>Movie:   {movie_name}</Card.Title>
+    <Card.Title>Theatre: {theatre_name}</Card.Title>
+    <Card.Title>Rating:  {rating}</Card.Title>
+    
+
+    <Card.Text>
+      {movie_info}
+     
+    </Card.Text>
+    
+  {/* </Card.ImgOverlay> */}
+</Card>
+
+
+
+             
+              {/* <Card.Body style={{ backgroundColor: "#D8E3E7" }}>
                 <Card.Title
                   style={{ display: "flex", justifyContent: "center" }}
                 >
@@ -77,7 +99,7 @@ class MovieShows extends React.Component {
                   </p>
                   .
                 </Card.Text>
-              </Card.Body>
+              </Card.Body> */}
             </Card>
           </Col>
         </Row>

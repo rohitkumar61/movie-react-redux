@@ -60,13 +60,21 @@ class MovieContainer extends React.Component {
 
     return (
       <div className="d-flex flex-wrap justify-content-center">
+
+      
         {this.state.movieData.map((movie) => {
+          console.log(movie.photo)
+          console.log("movie" ,movie)
+         let style = {
+          backgroundImage: `url(${movie.photo})`,
+        };
           return (
             <MovieCard
               movie={movie}
               key={movie.id}
               onDelete={() => this.handleDeleteMovie(movie.id)}
               onUpdate={this.handleUpdateMovie}
+              style = {style}
             />
           );
         })}
@@ -75,7 +83,7 @@ class MovieContainer extends React.Component {
           style={{
             width: "26rem",
             height: "19rem",
-            margin: "30px",
+            margin: "40px",
             color: "white",
             
             backgroundColor: "Blue",
