@@ -15,12 +15,13 @@ class MovieCard extends React.Component {
       <div>
         <Card
           style={{
-            width: "26rem",
+            width: "25rem",
             height: "32rem",
             margin: "40px",
             textColor: "black",
             // backgroundColor: "black",
-
+            boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
+           
             textDecorationLine: "none",
           }}
         >
@@ -32,7 +33,12 @@ class MovieCard extends React.Component {
                 style={{
                   backgroundPosition: "center",
                   backgroundSize: "cover",
-                  height: "33vh",
+                  backgroundRepeat:"no-repeat",
+                 
+                  
+                  
+                 height: "33vh",
+                 width:"100%",
                   backgroundImage: `${this.props.style.backgroundImage}`,
                 }}
               />

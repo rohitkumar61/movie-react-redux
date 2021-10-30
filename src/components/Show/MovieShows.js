@@ -57,6 +57,7 @@ class MovieShows extends React.Component {
                 variant="top"
                 style={this.props.style}
                 style={{
+                  boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                   height: "55vh",
