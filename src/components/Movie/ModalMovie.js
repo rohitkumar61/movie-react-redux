@@ -10,7 +10,7 @@ class ModalMovie extends Component {
       director: "",
       year: "",
       length_minutes: "",
-      photo:"",
+      photo: "",
       show: false,
     };
   }
@@ -36,8 +36,7 @@ class ModalMovie extends Component {
         year: "",
         length_minutes: "",
       });
-    }
-     else {
+    } else {
       toast("Enter All Input Field... ", {
         position: "top-center",
         draggable: true,
@@ -81,8 +80,13 @@ class ModalMovie extends Component {
         </div>
 
         <Modal show={this.state.show} onHide={this.handleShow}>
-          <Modal.Header>
-            <Modal.Title>
+          <Modal.Header closeButton>
+            {/* <Button variant="secondary" onClick={this.handleShow}>
+              Close
+            </Button> */}
+          </Modal.Header>
+          <Modal.Body>
+            {/* <Modal.Title> */}
               <Form onSubmit={this.handleSubmit}>
                 {/* <Row> */}
                 <Col>
@@ -174,7 +178,7 @@ class ModalMovie extends Component {
                     controlId="formHorizontalEmail"
                   >
                     <Form.Label column sm={4}>
-                     Movie Url
+                      Movie Url
                     </Form.Label>
                     <Col sm={8}>
                       <Form.Control
@@ -192,13 +196,13 @@ class ModalMovie extends Component {
                   Add Movie
                 </button>
               </Form>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleShow}>
+            {/* </Modal.Title> */}
+          </Modal.Body>
+          {/* <Modal.Footer> */}{" "}
+          {/* <Button variant="secondary" onClick={this.handleShow}>
               Close
-            </Button>
-          </Modal.Footer>
+            </Button> */}
+          {/* </Modal.Footer> */}
         </Modal>
       </>
     );

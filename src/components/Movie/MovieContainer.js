@@ -56,46 +56,42 @@ class MovieContainer extends React.Component {
   };
 
   render() {
-   
-
     return (
-      <div className="d-flex flex-wrap justify-content-center">
+      <>
+        <div className="d-flex justify-content-center">
+          <Card
+            style={{
+              width: "26rem",
+              height: "5rem",
+              margin: "10px",
+              color: "black",
 
-      
-        {this.state.movieData.map((movie) => {
-          console.log(movie.photo)
-          console.log("movie" ,movie)
-         let style = {
-          backgroundImage: `url(${movie.photo})`,
-        };
-          return (
-            <MovieCard
-              movie={movie}
-              key={movie.id}
-              onDelete={() => this.handleDeleteMovie(movie.id)}
-              onUpdate={this.handleUpdateMovie}
-              style = {style}
+              backgroundColor: "grey",
+            }}
+          >
+            <ModalMovie
+              key={this.state.movieData.id}
+              onCreate={this.handleCreateMovie}
             />
-          );
-        })}
-
-        <Card
-          style={{
-            width: "26rem",
-            height: "19rem",
-            margin: "40px",
-            color: "white",
-            
-            backgroundColor: "Blue",
-          
-          }}
-        >
-          <ModalMovie
-            key={this.state.movieData.id}
-            onCreate={this.handleCreateMovie}
-          />
-        </Card>
-      </div>
+          </Card>
+        </div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {this.state.movieData.map((movie) => {
+            let style = {
+              backgroundImage: `url(${movie.photo})`,
+            };
+            return (
+              <MovieCard
+                movie={movie}
+                key={movie.id}
+                onDelete={() => this.handleDeleteMovie(movie.id)}
+                onUpdate={this.handleUpdateMovie}
+                style={style}
+              />
+            );
+          })}
+        </div>
+      </>
     );
   }
 }

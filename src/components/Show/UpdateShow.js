@@ -64,6 +64,9 @@ class UpdateShow extends Component {
         </Button>
         {/* </div> */}
         <Modal show={this.state.show} onHide={this.handleShow}>
+        <Modal.Header closeButton>
+           
+           </Modal.Header>
           <Modal.Header>
             <Modal.Title>
               <Form onSubmit={this.handleSubmit}>
@@ -177,11 +180,11 @@ class UpdateShow extends Component {
               </Form>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Footer>
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleShow}>
               Close
             </Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
       </>
     );

@@ -62,6 +62,9 @@ class UpdateMovieModal extends Component {
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleShow}>
+        <Modal.Header closeButton>
+           
+           </Modal.Header>
           <Modal.Header>
             <Modal.Title>
               <Form onSubmit={this.handleSubmit}>
@@ -175,11 +178,11 @@ class UpdateMovieModal extends Component {
               </Form>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Footer>
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleShow}>
               Close
             </Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
       </>
     );

@@ -61,6 +61,13 @@ class ShowContainer extends React.Component {
   render() {
    
     return (
+      <>
+      <div>
+          <ShowsModal
+            key={this.state.showData.shows.id}
+            onCreate={this.handleAddShow}
+          />
+        </div>
       <div className="d-flex justify-content-center flex-column">
         {this.state.showData.shows.map((show) => {
            let style = {
@@ -76,13 +83,14 @@ class ShowContainer extends React.Component {
           />
         )
   })}
-        <div>
+        {/* <div>
           <ShowsModal
             key={this.state.showData.shows.id}
             onCreate={this.handleAddShow}
           />
-        </div>
+        </div> */}
       </div>
+      </>
     );
   }
 }

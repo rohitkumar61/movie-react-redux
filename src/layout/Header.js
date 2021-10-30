@@ -9,20 +9,23 @@ function Header() {
       <Navbar bg="secondary" variant="dark">
         <Container>
           <Navbar.Brand href="">
-			  <h1>Movies</h1>
+          <Link to = "/">
+			  <h1 style={{color:"white", fontSize:"2rem", textDecoration:"none"}}>Movies</h1>
+        </Link>
           </Navbar.Brand>
           <Navbar bg="secondary" variant="dark">
             <Container>
               <Nav className="me-auto">
-              <Link to = "/">
+              {/* <Link to = "/">
                 <div style={{color:"white", fontSize:"1.3rem", textDecoration:"none"}}>Home</div>
-                </Link>
+                </Link> */}
               </Nav>
             </Container>
           </Navbar>
         </Container>
       </Navbar>
     </div>
+
   );
 }
 

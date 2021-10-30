@@ -66,8 +66,9 @@ class ShowsModal extends Component {
   render() {
     return (
       <>
-        <div style={{ margin: "5rem" }}>
+        <div style={{ margin: "5rem", }}>
           <Button
+          
             onClick={this.handleShow}
             size="lg"
             onClick={this.handleShow}
@@ -78,6 +79,9 @@ class ShowsModal extends Component {
           </Button>
         </div>
         <Modal show={this.state.show} onHide={this.handleShow}>
+        <Modal.Header closeButton>
+           
+           </Modal.Header>
           <Modal.Header>
             <Modal.Title>
               <Form onSubmit={this.handleSubmit}>
@@ -114,7 +118,7 @@ class ShowsModal extends Component {
                     <Col sm={8}>
                       <Form.Control
                         type="text"
-                        placeholder="Enter Director Name"
+                        placeholder="Enter  Theatre Name"
                         name="theatre_name"
                         onChange={this.handleChange}
                         value={this.state.theatre_name}
@@ -134,7 +138,7 @@ class ShowsModal extends Component {
                     <Col sm={8}>
                       <Form.Control
                         type="number"
-                        placeholder="Enter Movie Year"
+                        placeholder="Enter Rating"
                         name="rating"
                         onChange={this.handleChange}
                         value={this.state.rating}
@@ -154,7 +158,7 @@ class ShowsModal extends Component {
                     <Col sm={8}>
                       <Form.Control
                         type="text"
-                        placeholder="Enter Movie Run Time"
+                        placeholder="Enter Info About Movie"
                         name="movie_info"
                         onChange={this.handleChange}
                         value={this.state.movie_info}
@@ -192,11 +196,11 @@ class ShowsModal extends Component {
               </Form>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Footer>
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleShow}>
               Close
             </Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
       </>
     );
