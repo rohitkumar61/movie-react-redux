@@ -8,20 +8,21 @@ class MovieShows extends React.Component {
   render() {
     const { movie_name, theatre_name, rating, movie_info } = this.props.show;
     return (
-      <div>
-        <Row
+      <div style={{width:"33%", margin:"10px"}}>
+        {/* <Row
           xs={1}
           md={1}
           className="g-9"
           style={{
             margin: "6rem",
           }}
-        >
-          <Col>
+        > */}
+          {/* <Col> */}
+
             <Card>
               <div
                 style={{
-                  background: "#FF5F6D",
+                  background: "red",
                   position: "relative",
                 }}
               >
@@ -53,7 +54,7 @@ class MovieShows extends React.Component {
                 </div>
               </div>
 
-              <Card.Img
+              <Card.Img 
                 variant="top"
                 style={this.props.style}
                 style={{
@@ -73,8 +74,8 @@ class MovieShows extends React.Component {
                 <Card.Text>{movie_info}</Card.Text>
               </Card>
             </Card>
-          </Col>
-        </Row>
+          {/* </Col> */}
+        {/* </Row> */}
       </div>
     );
   }

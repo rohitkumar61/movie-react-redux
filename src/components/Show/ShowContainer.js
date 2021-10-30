@@ -68,7 +68,7 @@ class ShowContainer extends React.Component {
             onCreate={this.handleAddShow}
           />
         </div>
-      <div className="d-flex justify-content-center flex-column">
+      <div className="d-flex justify-content-center flex-row flex-wrap">
         {this.state.showData.shows.map((show) => {
            let style = {
             backgroundImage: `url(${show.photo_url})`,
