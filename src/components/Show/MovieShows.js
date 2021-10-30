@@ -26,7 +26,7 @@ class MovieShows extends React.Component {
                 }}
               >
                 <div
-                  style={{ position: "absolute", left: "0px", padding: "10px" }}
+                  style={{ position: "absolute", right: "200px", padding: "10px" }}
                 >
                   <Button
                     variant="outline-danger"
