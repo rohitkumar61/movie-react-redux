@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, Row, Form, Col } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 class ModalMovie extends Component {
   constructor(props) {
@@ -23,16 +24,39 @@ class ModalMovie extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const data = this.state;
+    let isValid = this.validateInputField(data);
+
     delete data.show;
-    this.props.onCreate(data);
-    this.setState({
-      title: "",
-      director: "",
-      year: "",
-      length_minutes: "",
-    });
+    if (isValid) {
+      this.props.onCreate(data);
+      this.setState({
+        title: "",
+        director: "",
+        year: "",
+        length_minutes: "",
+      });
+    }
+     else {
+      toast("Enter All Input Field... ", {
+        position: "top-center",
+        draggable: true,
+        type: "warning",
+      });
+      console.error("Input field can't be empty");
+    }
   };
 
+  validateInputField = (data) => {
+    let isValid = true;
+    let newData = { ...data };
+    Object.values(newData).forEach((element) => {
+      if (!`${element}`) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  };
   handleShow = () => this.setState({ show: !this.state.show });
 
   render() {
@@ -51,7 +75,7 @@ class ModalMovie extends Component {
             size="lg"
             onClick={this.handleShow}
           >
-           Add New Movie
+            Add New Movie
           </Button>
         </div>
 
@@ -69,7 +93,7 @@ class ModalMovie extends Component {
                     <Form.Label column sm={4}>
                       Title
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Movie Name"
@@ -89,7 +113,7 @@ class ModalMovie extends Component {
                     <Form.Label column sm={4}>
                       Director
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Director Name"
@@ -109,7 +133,7 @@ class ModalMovie extends Component {
                     <Form.Label column sm={4}>
                       Year
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="number"
                         placeholder="Enter Movie Year"
@@ -129,7 +153,7 @@ class ModalMovie extends Component {
                     <Form.Label column sm={4}>
                       Run Time
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="number"
                         placeholder="Enter Movie Run Time (min)"

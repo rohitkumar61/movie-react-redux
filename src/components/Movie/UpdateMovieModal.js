@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, Row, Form, Col } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 class UpdateMovieModal extends Component {
   constructor(props) {
@@ -23,7 +24,13 @@ class UpdateMovieModal extends Component {
     if (isValid) {
       this.props.onUpdate(data);
     } else {
-      alert("Enter All Input Field... ");
+      toast("Enter All Input Field... ", {
+        position: "top-center",
+        draggable: true,
+        type: "warning",
+      });
+      console.error("Input field can't be empty");
+    
     }
   };
 
@@ -65,7 +72,7 @@ class UpdateMovieModal extends Component {
                     className="mb-1"
                     controlId="formHorizontalEmail"
                   >
-                    <Form.Label column sm={4}>
+                    <Form.Label column sm={5}>
                       Title
                     </Form.Label>
                     <Col sm={7}>
@@ -85,7 +92,7 @@ class UpdateMovieModal extends Component {
                     className="mb-1"
                     controlId="formHorizontalEmail"
                   >
-                    <Form.Label column sm={4}>
+                    <Form.Label column sm={5}>
                       Director
                     </Form.Label>
                     <Col sm={7}>
@@ -105,7 +112,7 @@ class UpdateMovieModal extends Component {
                     className="mb-3"
                     controlId="formHorizontalEmail"
                   >
-                    <Form.Label column sm={4}>
+                    <Form.Label column sm={5}>
                       Year
                     </Form.Label>
                     <Col sm={7}>
@@ -125,13 +132,13 @@ class UpdateMovieModal extends Component {
                     className="mb-3"
                     controlId="formHorizontalEmail"
                   >
-                    <Form.Label column sm={4}>
-                      Run Time (min)
+                    <Form.Label column sm={5}>
+                      Run Time(min)
                     </Form.Label>
                     <Col sm={7}>
                       <Form.Control
                         type="number"
-                        placeholder="Enter Movie Run Time"
+                        placeholder="Enter Movie Run Time(min...)"
                         name="length_minutes"
                         onChange={this.handleChange}
                         value={this.state.length_minutes}

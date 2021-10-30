@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, Row, Form, Col } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 class ShowsModal extends Component {
   constructor(props) {
@@ -36,8 +37,14 @@ class ShowsModal extends Component {
         movie_info: "",
       });
     } else {
-      alert("Enter All Input Field... ");
-    }
+     
+        toast("Enter All Input Field... ", {
+          position: "top-center",
+          draggable: true,
+          type: "warning",
+        });
+        console.error("Input field can't be empty");
+      }
   };
 
   validateInputField = (data) => {
@@ -49,8 +56,6 @@ class ShowsModal extends Component {
       }
     });
 
-    console.log("fields", data);
-    console.log("new fields", newData);
     return isValid;
   };
 
@@ -84,7 +89,7 @@ class ShowsModal extends Component {
                     <Form.Label column sm={4}>
                       Movie
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Movie Name"
@@ -104,7 +109,7 @@ class ShowsModal extends Component {
                     <Form.Label column sm={4}>
                       Theatre
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Director Name"
@@ -124,7 +129,7 @@ class ShowsModal extends Component {
                     <Form.Label column sm={4}>
                       Rating
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="number"
                         placeholder="Enter Movie Year"
@@ -144,7 +149,7 @@ class ShowsModal extends Component {
                     <Form.Label column sm={4}>
                       Info
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Movie Run Time"

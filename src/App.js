@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 import './App.css';
 import Header from "./layout/Header";
@@ -9,6 +11,7 @@ import ShowContainer from "./components/Show/ShowContainer";
 
 function App() {
   return (
+    <>
     <Router>
     <div className="App">
       <Header />
@@ -19,6 +22,8 @@ function App() {
       </Switch>
     </div>
     </Router>
+    <ToastContainer/>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, Row, Form, Col } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 class UpdateShow extends Component {
   constructor(props) {
@@ -24,7 +25,13 @@ class UpdateShow extends Component {
     if (isValid) {
       this.props.onUpdate(data);
     } else {
-      alert("Enter All Input Field... ");
+      toast("Enter All Input Field... ", {
+        position: "top-center",
+        draggable: true,
+        type: "warning",
+      });
+      console.error("Input field can't be empty");
+    
     }
   };
 
@@ -70,7 +77,7 @@ class UpdateShow extends Component {
                     <Form.Label column sm={4}>
                       Movie
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Movie Name"
@@ -90,7 +97,7 @@ class UpdateShow extends Component {
                     <Form.Label column sm={4}>
                       Theatre
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Director Name"
@@ -110,7 +117,7 @@ class UpdateShow extends Component {
                     <Form.Label column sm={4}>
                       Rating
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="number"
                         placeholder="Enter Movie Year"
@@ -130,7 +137,7 @@ class UpdateShow extends Component {
                     <Form.Label column sm={4}>
                       Info
                     </Form.Label>
-                    <Col sm={7}>
+                    <Col sm={8}>
                       <Form.Control
                         type="text"
                         placeholder="Enter Movie Run Time"

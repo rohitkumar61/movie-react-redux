@@ -22,7 +22,14 @@ class MovieCard extends React.Component {
             textDecorationLine:"none"
            
           }}
-        >
+        > 
+        {/* <img
+        
+        src="https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00314240-cguqzurswh-portrait.jpg"
+        width="100vw"
+        height="100vh"
+        className="d-inline-block align-top"
+      />{" "} */}
           <Link to={`/movie/${id}`}>
             <Card.Body
               style={{

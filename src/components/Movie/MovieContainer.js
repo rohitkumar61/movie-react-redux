@@ -77,7 +77,9 @@ class MovieContainer extends React.Component {
             height: "19rem",
             margin: "30px",
             color: "white",
+            
             backgroundColor: "Blue",
+          
           }}
         >
           <ModalMovie
